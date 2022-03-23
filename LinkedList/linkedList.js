@@ -1,7 +1,7 @@
 class Node {
   constructor(value){
     this.value = value,
-    this.node = null
+    this.next = null
   }
 }
 
@@ -17,7 +17,7 @@ class LinkedList {
     this.tail.next = newNode;
     this.tail = newNode;
     this.length++
-    return this;
+    this.printList();
   }
 
   insertNodeAtTheBegining(value){
@@ -25,12 +25,21 @@ class LinkedList {
     newNode.next = this.head;
     this.head = newNode;
     this.length++
-    return this;
+    this.printList();
+  }
+
+  printList(){
+    const list = [];
+    let currentNode = this.head;
+    while(currentNode!==null){
+      list.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    console.log({list});
+    console.log("Length = ",this.length);
   }
 }
 
 const myLinkedList = new LinkedList(10);
 myLinkedList.insertNodeAtTheEnd(15);
 myLinkedList.insertNodeAtTheBegining(5);
-console.log({myLinkedList});
-console.log(myLinkedList.head);
