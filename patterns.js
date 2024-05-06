@@ -7,7 +7,8 @@ inputModule.readInput((numberOfTestCases, inputs) => {
     // pattern1(input);
     // pattern2(input);
     // pattern3(input);
-    pattern4(input);
+    // pattern4(input);
+    pattern5(input);
   }
 });
 /*====================================================*/
@@ -85,7 +86,24 @@ function pattern4(n) {
   }
 }
 
-
+/*
+******
+*****
+****
+***
+**
+*
+*/
+function pattern5(n) {
+  for (let i = 1; i <= n; i++) {
+    let str = "";
+    for (let j = 0; j<n-i+1; j++) {
+      str += `*`
+    }
+    console.log(str);
+    str = "";
+  }
+}
 
 
 
