@@ -13,6 +13,29 @@ fs.readFile('input.txt', 'utf8', (err, data) => {
   // const result = input * 2;
   /*---------------------------------------------*/
 
+  var isAnagram = function (s, t) {
+    if (s.length !== t.length) {
+      return false;
+    }
+
+    countS = new Map();
+    countT = new Map();
+
+    for (let i = 0; i < s.length; i++) {
+      countS[s[i]] = (countS.get(s[i]) || 0) + 1;
+      countT[t[i]] = (countT.get(t[i]) || 0) + 1;
+    }
+
+    for (let char in countS) {
+      if (countS[char] !== countT[char]) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  const result = isAnagram(input);
 
   /*---------------------------------------------*/
   // Write result to output.txt
